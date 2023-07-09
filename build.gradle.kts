@@ -5,8 +5,9 @@ plugins {
     id("org.springframework.boot") version "3.1.1"
     id("io.spring.dependency-management") version "1.1.0"
     kotlin("jvm") version "1.9.0"
-    kotlin("plugin.spring") version "1.8.0"
-    kotlin("plugin.jpa") version "1.8.0"
+    kotlin("plugin.serialization") version "1.9.0"
+    kotlin("plugin.spring") version "1.9.0"
+    kotlin("plugin.jpa") version "1.9.0"
 }
 
 // 全局指定jdk版本
@@ -31,13 +32,14 @@ allprojects {
     // 把 https://developer.aliyun.com/mvn/view 这里的仓库全部搬过来了
     // 重新排序了一下
     repositories {
+        maven("https://maven.aliyun.com/repository/public")
+        maven("https://maven.aliyun.com/repository/jcenter")
+        mavenCentral()
+        maven("https://maven.aliyun.com/repository/google")
         maven("https://maven.aliyun.com/repository/central")
         maven("https://maven.aliyun.com/repository/gradle-plugin")
         maven("https://maven.aliyun.com/repository/spring")
         maven("https://maven.aliyun.com/repository/spring-plugin")
-        maven("https://maven.aliyun.com/repository/google")
-        maven("https://maven.aliyun.com/repository/jcenter")
-        mavenCentral()
         maven("https://maven.aliyun.com/repository/apache-snapshots")
         maven("https://maven.aliyun.com/repository/releases")
         maven("https://maven.aliyun.com/repository/snapshots")
@@ -52,6 +54,7 @@ ext {
     set("junitVersion", "5.9.1")
     set("springCloudVersion", "2022.0.3")
     set("springBootVersion", "3.1.1")
+    set("mybatisPlusVersion", "3.5.3.1")
 }
 
 // 依赖管理，定义了全局的依赖版本，子工程会继承这里定义好的版本号，除非重写
@@ -61,11 +64,18 @@ dependencyManagement {
         // spring cloud 套件
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
         // springboot 套件
+        mavenBom("org.springframework.boot:spring-boot-starter:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-dependencies:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-test:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-web:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-webflux:${property("springBootVersion")}")
+        mavenBom("org.springframework.boot:spring-boot-starter-data-jdbc:${property("springBootVersion")}")
+        // runtimeOnly
+        mavenBom("com.h2database:h2:2.2.220")
+        // runtimeOnly
+        mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
+
         // spring cloud alibaba
         mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0")
         // druid
@@ -77,15 +87,19 @@ dependencyManagement {
         mavenBom("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
         mavenBom("org.jetbrains.kotlin:kotlin-reflect:1.9.0")
 
-        // runtimeOnly
-        mavenBom("com.h2database:h2:2.2.220")
-        mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
+        // mybatis-plus
+        mavenBom("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
+        // 逆向工程
+        mavenBom("com.baomidou:mybatis-plus-generator:${property("mybatisPlusVersion")}")
+
+        mavenBom("io.swagger.core.v3:swagger-annotations:2.2.14")
     }
 }
 
 // 这是才是真正地依赖引入，因为最外层没有实际的代码所以暂时不引入任何依赖
 dependencies {
-
+    implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
+    implementation("com.baomidou:mybatis-plus-generator:${property("mybatisPlusVersion")}")
 }
 
 /**
