@@ -26,8 +26,26 @@ configurations {
 group = "com.withoutcat"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
+// 全局指定仓库
+allprojects {
+    // 把 https://developer.aliyun.com/mvn/view 这里的仓库全部搬过来了
+    // 重新排序了一下
+    repositories {
+        maven("https://maven.aliyun.com/repository/central")
+        maven("https://maven.aliyun.com/repository/gradle-plugin")
+        maven("https://maven.aliyun.com/repository/spring")
+        maven("https://maven.aliyun.com/repository/spring-plugin")
+        maven("https://maven.aliyun.com/repository/google")
+        maven("https://maven.aliyun.com/repository/jcenter")
+        mavenCentral()
+        maven("https://maven.aliyun.com/repository/apache-snapshots")
+        maven("https://maven.aliyun.com/repository/releases")
+        maven("https://maven.aliyun.com/repository/snapshots")
+        maven("https://maven.aliyun.com/repository/grails-core")
+        maven("https://maven.aliyun.com/repository/mapr-public")
+        maven("https://maven.aliyun.com/repository/staging-alpha")
+        maven("https://maven.aliyun.com/repository/staging-alpha-group")
+    }
 }
 
 ext {
