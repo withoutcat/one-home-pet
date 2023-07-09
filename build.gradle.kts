@@ -9,9 +9,13 @@ plugins {
     kotlin("plugin.jpa") version "1.8.0"
 }
 
+// 全局指定jdk版本
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
+
 
 configurations {
     compileOnly {
