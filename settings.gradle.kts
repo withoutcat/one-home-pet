@@ -1,2 +1,3 @@
 rootProject.name = "one-home-pet"
-include("user-service")
+include("module-user-service")
+include("module-appointment-service")
