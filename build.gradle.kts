@@ -43,6 +43,7 @@ dependencyManagement {
         mavenBom("org.springframework.boot:spring-boot-starter-test:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-web:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
+        mavenBom("org.springframework.boot:spring-boot-starter-webflux:${property("springBootVersion")}")
         // spring cloud alibaba
         mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0")
         // druid
