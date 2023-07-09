@@ -4,9 +4,19 @@ plugins {
     java
     id("org.springframework.boot") version "3.1.1"
     id("io.spring.dependency-management") version "1.1.0"
-    kotlin("jvm") version "1.8.0"
+    kotlin("jvm") version "1.9.0"
     kotlin("plugin.spring") version "1.8.0"
     kotlin("plugin.jpa") version "1.8.0"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+configurations {
+    compileOnly {
+        extendsFrom(configurations.annotationProcessor.get())
+    }
 }
 
 group = "com.withoutcat"
@@ -50,7 +60,7 @@ dependencyManagement {
     }
 }
 
-// 这是才是真正的依赖引入，因为最外层没有实际的代码所以暂时不引入任何依赖
+// 这是才是真正地依赖引入，因为最外层没有实际的代码所以暂时不引入任何依赖
 dependencies {
 
 }
@@ -71,5 +81,10 @@ dependencies {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
+        jvmTarget = "17"
     }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
