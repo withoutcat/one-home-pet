@@ -92,11 +92,12 @@ dependencyManagement {
         // 逆向工程
         mavenBom("com.baomidou:mybatis-plus-generator:${property("mybatisPlusVersion")}")
 
-        mavenBom("io.swagger.core.v3:swagger-annotations:2.2.14")
+        mavenBom("io.swagger:swagger-annotations:1.6.11")
         mavenBom("org.freemarker:freemarker:2.3.32")
         // log
         mavenBom("org.slf4j:slf4j-api:2.0.7")
         mavenBom("org.projectlombok:lombok:1.18.28")
+        mavenBom("org.apache.velocity:velocity-engine-core:2.3")
     }
 }
 

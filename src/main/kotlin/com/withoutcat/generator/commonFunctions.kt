@@ -3,11 +3,14 @@
  */
 package com.withoutcat.generator
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper
 import com.baomidou.mybatisplus.generator.FastAutoGenerator
 import com.baomidou.mybatisplus.generator.config.*
 import com.baomidou.mybatisplus.generator.config.po.TableField.MetaInfo
 import com.baomidou.mybatisplus.generator.config.querys.MySqlQuery
+import com.baomidou.mybatisplus.generator.config.rules.DateType
 import com.baomidou.mybatisplus.generator.config.rules.DbColumnType
+import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine
 import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler
 import com.baomidou.mybatisplus.generator.type.TypeRegistry
@@ -57,9 +60,10 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
         builder.author(gitUser.userName) // 设置作者
             .enableSwagger() // 开启 swagger 模式
             .enableKotlin() // 开启 Kotlin 模式
+            .dateType(DateType.TIME_PACK) // 设置日期类型为 java8 下的 java.time 类型
             .disableOpenDir() // 禁止生成后打开输出目录
 //            .fileOverride() // 覆盖已生成文件 已替换成enableFileOverride()
-            .outputDir("D://") // 指定输出目录
+            .outputDir("${System.getProperty("user.dir")}/src/main/kotlin") // 指定输出目录
     }.dataSourceConfig { builder: DataSourceConfig.Builder -> // 可选配置
         builder.typeConvertHandler { globalConfig: GlobalConfig?, typeRegistry: TypeRegistry, metaInfo: MetaInfo ->
             val typeCode = metaInfo.jdbcType.TYPE_CODE
@@ -78,31 +82,38 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
             .service("service") // 设置Service包名，默认service
             .serviceImpl("service.impl") // 设置Service Impl包名，默认service.impl
             .mapper("mapper") // 设置Mapper包名，默认mapper
-            .mapper("mapper.xml") // 设置Mapper Xml包名，默认mapper.xml
+            .mapper("mapper") // 设置Mapper Xml包名，默认mapper.xml
             .controller("controller") // 设置Controller包名，默认controller
             .pathInfo(
                 Collections.singletonMap(
                     OutputFile.xml,
-                    "C://mapper"
+                    "${System.getProperty("user.dir")}/src/main/resources/mapper"
                 )
             ) // 设置mapperXml生成路径
     }.strategyConfig { builder: StrategyConfig.Builder ->
         builder.addInclude(*tables) // 设置需要生成的表名
             .addTablePrefix("t_", "c_", "v_") // 设置过滤表前缀
+
             .entityBuilder() // Entity 策略配置
-//            .superClass() // 自定义继承的Entity类全称，带包名
-            .enableChainModel() // 	开启链式模型
-            .enableLombok() // 开启 lombok 模型
-            .enableFileOverride() // 覆盖已生成文件
+            .enableTableFieldAnnotation()       // 开启生成实体时生成字段注解
+            .naming(NamingStrategy.underline_to_camel)  //数据库表映射到实体的命名策略：下划线转驼峰命
+            .columnNaming(NamingStrategy.underline_to_camel)    //数据库表字段映射到实体的命名策略：下划线转驼峰命
+            .disableSerialVersionUID()  //不实现 Serializable 接口，不生产 SerialVersionUID
+            // .enableChainModel() // 	开启链式模型 对kotlin不生效，kt模板里没有对lombok的判断
+            // .enableLombok() // 开启 lombok 模型 对kotlin不生效，kt模板里没有对lombok的判断
+            .enableActiveRecord() // 开启 ActiveRecord 模式
+            .enableFileOverride() // 覆盖已生成文件 注意只有实体类才有覆盖的必要，其他层里会有业务代码不要开启覆盖！
 
             .serviceBuilder() // Service 策略配置
-            .enableFileOverride() // 覆盖已生成文件
+            .formatServiceFileName("%sService") //格式化 service 接口文件名称，%s进行匹配表名，如 UserService
+            .formatServiceImplFileName("%sServiceImpl") //格式化 service 实现类文件名称，%s进行匹配表名，如 UserServiceImpl
 
             .controllerBuilder() // Controller 策略配置
-            .enableFileOverride() // 覆盖已生成文件
+            .formatFileName("%sController") //格式化 Controller 类文件名称，%s进行匹配表名，如 UserController
+            .enableRestStyle()  //开启生成 @RestController 控制器
 
             .mapperBuilder() // Mapper 策略配置
-            .enableFileOverride() // 覆盖已生成文件
+            .superClass(BaseMapper::class.java)   //设置父类
     }.templateEngine(FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板，注意必须手动引入依赖
         .execute()
 }
