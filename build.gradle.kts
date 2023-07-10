@@ -93,13 +93,22 @@ dependencyManagement {
         mavenBom("com.baomidou:mybatis-plus-generator:${property("mybatisPlusVersion")}")
 
         mavenBom("io.swagger.core.v3:swagger-annotations:2.2.14")
+        mavenBom("org.freemarker:freemarker:2.3.32")
+        // log
+        mavenBom("org.slf4j:slf4j-api:2.0.7")
+        mavenBom("org.projectlombok:lombok:1.18.28")
     }
 }
 
 // 这是才是真正地依赖引入，因为最外层没有实际的代码所以暂时不引入任何依赖
 dependencies {
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
     implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
     implementation("com.baomidou:mybatis-plus-generator:${property("mybatisPlusVersion")}")
+    runtimeOnly("com.mysql:mysql-connector-j")
+    runtimeOnly("org.freemarker:freemarker")
+    implementation("org.slf4j:slf4j-api")
+    compileOnly("org.projectlombok:lombok:1.18.28")
 }
 
 /**
