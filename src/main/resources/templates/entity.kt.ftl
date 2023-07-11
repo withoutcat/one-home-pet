@@ -29,54 +29,55 @@ import io.swagger.annotations.ApiModelProperty
 data class ${entity} (
 <#-- ----------  BEGIN 字段循环遍历  ---------->
 <#list table.fields as field>
-    ${field}
     <#if field.keyFlag>
         <#assign keyPropertyName="${field.propertyName}"/>
     </#if>
     <#if field.comment!?length gt 0>
         <#if springdoc>
-            @Schema(description = "${field.comment}")
+    @Schema(description = "${field.comment}")
         <#elseif swagger>
-            @ApiModelProperty("${field.comment}")
+    @ApiModelProperty("${field.comment}")
         <#else>
-            /**
-            * ${field.comment}
-            */
+    /**
+    * ${field.comment}
+    */
         </#if>
     </#if>
     <#if field.keyFlag>
     <#-- 主键 -->
         <#if field.keyIdentityFlag>
-            @TableId(value = "${field.annotationColumnName}", type = IdType.AUTO)
+    @TableId(value = "${field.annotationColumnName}", type = IdType.AUTO)
         <#elseif idType ??>
-            @TableId(value = "${field.annotationColumnName}", type = IdType.${idType})
+    @TableId(value = "${field.annotationColumnName}", type = IdType.${idType})
         <#elseif field.convert>
-            @TableId("${field.annotationColumnName}")
+    @TableId("${field.annotationColumnName}")
         </#if>
     <#-- 普通字段 -->
     <#elseif field.fill??>
     <#-- -----   存在字段填充设置   ----->
         <#if field.convert>
-            @TableField(value = "${field.annotationColumnName}", fill = FieldFill.${field.fill})
+    @TableField(value = "${field.annotationColumnName}", fill = FieldFill.${field.fill})
         <#else>
-            @TableField(fill = FieldFill.${field.fill})
+    @TableField(fill = FieldFill.${field.fill})
         </#if>
     <#elseif field.convert>
-        @TableField("${field.annotationColumnName}")
+    @TableField("${field.annotationColumnName}")
     </#if>
 <#-- 乐观锁注解 -->
     <#if field.versionField>
 
-        @Version
+    @Version
     </#if>
 <#-- 逻辑删除注解 -->
     <#if field.logicDeleteField>
-        @TableLogic
+    @TableLogic
     </#if>
     <#if field.propertyType == "Integer">
-        val ${field.propertyName}: Int?
+    val ${field.propertyName}: Int?,
+    <#elseif field.propertyType == "Object">
+    val ${field.propertyName}: Any?,
     <#else>
-        val ${field.propertyName}: ${field.propertyType}?
+    val ${field.propertyName}: ${field.propertyType}?,
     </#if>
 </#list>
 <#-- ----------  END 字段循环遍历  ---------->
@@ -109,6 +110,7 @@ data class ${entity} (
 </#if>
     }
 </#if>
+
 }
 
 
