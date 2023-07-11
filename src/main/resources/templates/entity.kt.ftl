@@ -11,9 +11,8 @@ import io.swagger.annotations.ApiModelProperty
 </#if>
 
 /**
- * <p>
- * ${table.comment}
- * </p>
+<#-- 在kotlin中使用Markdown语法编写注释，非Javadoc中的HTML语法，这里使用了二级标题 -->
+ * ## ${table.comment}
  *
  * @author ${author}
  * @since ${date}
