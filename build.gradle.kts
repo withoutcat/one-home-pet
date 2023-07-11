@@ -98,6 +98,9 @@ dependencyManagement {
         mavenBom("org.slf4j:slf4j-api:2.0.7")
         mavenBom("org.projectlombok:lombok:1.18.28")
         mavenBom("org.apache.velocity:velocity-engine-core:2.3")
+        mavenBom("io.projectreactor:reactor-tools:3.5.7")
+        mavenBom("org.junit.jupiter:junit-jupiter-api:5.9.3")
+
     }
 }
 
@@ -110,6 +113,7 @@ dependencies {
     runtimeOnly("org.freemarker:freemarker")
     implementation("org.slf4j:slf4j-api")
     compileOnly("org.projectlombok:lombok:1.18.28")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
 }
 
 /**

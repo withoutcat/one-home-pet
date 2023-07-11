@@ -3,6 +3,7 @@
  */
 package com.withoutcat.generator
 
+import com.baomidou.mybatisplus.annotation.IdType
 import com.baomidou.mybatisplus.core.mapper.BaseMapper
 import com.baomidou.mybatisplus.generator.FastAutoGenerator
 import com.baomidou.mybatisplus.generator.config.*
@@ -16,6 +17,7 @@ import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler
 import com.baomidou.mybatisplus.generator.type.TypeRegistry
 import com.withoutcat.dto.DataSource
 import com.withoutcat.dto.GitUser
+import org.springframework.core.io.ClassPathResource
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.sql.Types
@@ -23,6 +25,18 @@ import java.util.*
 
 fun main() {
 
+}
+
+fun readSelfResources(): String {
+    ClassPathResource("application-common-dev.yaml").inputStream.use {
+        val properties = Properties()
+        properties.load(it)
+        val url = properties.getProperty("spring.datasource.url")
+        val hello = properties.getProperty("hello")
+        val username = properties.getProperty("spring.datasource.username")
+        val password = properties.getProperty("spring.datasource.password")
+        return hello
+    }
 }
 
 
@@ -58,7 +72,8 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
         dataSource.password
     ).globalConfig { builder: GlobalConfig.Builder -> // 全局配置
         builder.author(gitUser.userName) // 设置作者
-            .enableSwagger() // 开启 swagger 模式
+            .enableSpringdoc() // 开启 springdoc 模式 springdoc使用的是openAPI3.0，它是swagger2.0的迭代升级版本并且改了名字，是新的规范
+//            .enableSwagger() // 开启 swagger 模式
             .enableKotlin() // 开启 Kotlin 模式
             .dateType(DateType.TIME_PACK) // 设置日期类型为 java8 下的 java.time 类型
             .disableOpenDir() // 禁止生成后打开输出目录
@@ -102,6 +117,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
             // .enableChainModel() // 	开启链式模型 对kotlin不生效，kt模板里没有对lombok的判断
             // .enableLombok() // 开启 lombok 模型 对kotlin不生效，kt模板里没有对lombok的判断
             .enableActiveRecord() // 开启 ActiveRecord 模式
+            .idType(IdType.ASSIGN_UUID) // 主键类型
             .enableFileOverride() // 覆盖已生成文件 注意只有实体类才有覆盖的必要，其他层里会有业务代码不要开启覆盖！
 
             .serviceBuilder() // Service 策略配置
@@ -113,7 +129,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
             .enableRestStyle()  //开启生成 @RestController 控制器
 
             .mapperBuilder() // Mapper 策略配置
-            .superClass(BaseMapper::class.java)   //设置父类
+            .superClass(BaseMapper::class.java) //设置父类
     }.templateEngine(FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板，注意必须手动引入依赖
         .execute()
 }

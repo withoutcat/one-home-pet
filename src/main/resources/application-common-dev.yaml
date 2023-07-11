@@ -1,0 +1,6 @@
+# 指定这个配置文件的运行环境是dev
+spring:
+  profiles:
+    active: dev
+project:
+  group: com.withoutcat
