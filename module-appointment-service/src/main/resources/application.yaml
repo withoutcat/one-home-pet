@@ -1,0 +1,13 @@
+server:
+  port: 8082
+
+spring:
+  devtools:
+    restart:
+      enabled: true
+      exclude: static/**,public/**
+  application:
+    name: appointment-service
+  profiles:
+    include:
+      - dev
