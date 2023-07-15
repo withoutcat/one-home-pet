@@ -1,0 +1,9 @@
+server:
+  port: 8761
+spring:
+  application:
+    # eureka的服务名
+    name: eureka-service
+  profiles:
+    include:
+      - dev

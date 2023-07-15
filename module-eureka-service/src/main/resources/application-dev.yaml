@@ -1,0 +1,19 @@
+spring:
+  devtools:
+    restart:
+      enabled: true
+      exclude: static/**,public/**
+
+# eureka自己把自己也注册成一个服务
+eureka:
+  client:
+    service-url:
+      # 不拉取服务，只用缓存，默认true
+     # fetchRegistry: false
+      # 不向eureka注册自己，只发现别的服务，并不向外提供服务, 默认true
+      # 也就是说，如果不配置这个，eureka会把自己也注册成一个服务，不要多余去指定一个client url
+      registerWithEureka: true
+#      defaultZone: http://127.0.0.1:8761/eureka/
+
+
+

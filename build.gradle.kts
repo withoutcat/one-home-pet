@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     java
     id("org.springframework.boot") version "3.1.1"
+    // io.spring.dependency-management 插件主要提供了一个标准方式来导入 Bill of Materials (BOM)
+    // 它不包含具体的 Spring Boot 或 Spring Cloud 的依赖管理。
     id("io.spring.dependency-management") version "1.1.0"
     kotlin("jvm") version "1.9.0"
     kotlin("plugin.serialization") version "1.9.0"
@@ -55,6 +57,8 @@ ext {
     set("springCloudVersion", "2022.0.3")
     set("springBootVersion", "3.1.1")
     set("mybatisPlusVersion", "3.5.3.1")
+    set("eurekaVersion", "4.0.2")
+    set("lombokVersion", "1.18.28")
 }
 
 // 依赖管理，定义了全局的依赖版本，子工程会继承这里定义好的版本号，除非重写
@@ -63,6 +67,9 @@ dependencyManagement {
     imports {
         // spring cloud 套件
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
+        mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${property("eurekaVersion")}")
+        mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
+        mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0")
         // springboot 套件
         mavenBom("org.springframework.boot:spring-boot-starter:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-dependencies:${property("springBootVersion")}")
@@ -76,13 +83,11 @@ dependencyManagement {
         // runtimeOnly
         mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
 
-        // spring cloud alibaba
-        mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0")
         // druid
         mavenBom("com.alibaba:druid:1.2.18")
         // mysql驱动，注意要跟mysql数据库实例版本保持一致
         mavenBom("mysql:mysql-connector-java:8.0.33")
-        mavenBom("com.baomidou:mybatis-plus-boot-starter:3.5.3.1")
+        mavenBom("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
         // kotlin 套件
         mavenBom("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.2")
         mavenBom("org.jetbrains.kotlin:kotlin-reflect:1.9.0")
@@ -103,18 +108,23 @@ dependencyManagement {
         mavenBom("org.junit.jupiter:junit-jupiter-api:5.9.3")
         mavenBom("io.swagger.core.v3:swagger-annotations:2.2.15")
 
+
     }
 }
 
-// 这是才是真正地依赖引入，因为最外层没有实际的代码所以暂时不引入任何依赖
+// 这是才是真正地依赖引入，这里的依赖除了是父工程自己使用意外，在打包时会进入每一个模块的发布件中，这相当于是共同依赖，为了避免重复声明
 dependencies {
+//    implementation("org.springframework.boot:spring-boot-starter:${property("springBootVersion")}")
+//    implementation("org.springframework.boot:spring-boot-dependencies:${property("springBootVersion")}")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+
     implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
     implementation("com.baomidou:mybatis-plus-generator:${property("mybatisPlusVersion")}")
     runtimeOnly("com.mysql:mysql-connector-j")
     runtimeOnly("org.freemarker:freemarker")
     implementation("org.slf4j:slf4j-api")
-    compileOnly("org.projectlombok:lombok:1.18.28")
+    annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.junit.jupiter:junit-jupiter-api")
 }
 
