@@ -1,10 +1,9 @@
-package com.withoutcat.dto
-
-import lombok.Data
+package com.withoutcat.generator.dto
 
 
-@Data
-class DataSource(
+
+
+data class DataSource(
     val url: String,
     val username: String,
     val password: String,

@@ -2,24 +2,31 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     java
-    id("org.springframework.boot")
-    id("io.spring.dependency-management")
-    kotlin("jvm")
-    kotlin("plugin.spring")
+    id("org.springframework.boot") version "3.1.1"
+    // io.spring.dependency-management 插件主要提供了一个标准方式来导入 Bill of Materials (BOM)
+    // 它不包含具体的 Spring Boot 或 Spring Cloud 的依赖管理。
+    id("io.spring.dependency-management") version "1.1.0"
+    kotlin("jvm") version "1.9.0"
+    kotlin("plugin.serialization") version "1.9.0"
+    kotlin("plugin.spring") version "1.9.0"
+    kotlin("plugin.jpa") version "1.9.0"
 }
 
-group = "com.withoutcat.eureka"
+group = "com.withoutcat.generator"
 version = "1.0-SNAPSHOT"
 
 
+// 这是才是真正地依赖引入，这里的依赖除了是父工程自己使用意外，在打包时会进入每一个模块的发布件中，这相当于是共同依赖，为了避免重复声明
 dependencies {
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${property("eurekaVersion")}")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-}
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 
-tasks.test {
-    useJUnitPlatform()
+    implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
+    implementation("com.baomidou:mybatis-plus-generator:${property("mybatisPlusVersion")}")
+    runtimeOnly("com.mysql:mysql-connector-j")
+    runtimeOnly("org.freemarker:freemarker")
+    implementation("org.slf4j:slf4j-api")
+    annotationProcessor("org.projectlombok:lombok")
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
 }
 
 /**
@@ -41,4 +48,8 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs += "-Xjsr305=strict"
         jvmTarget = "17"
     }
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }

@@ -5,7 +5,6 @@ package com.withoutcat.generator
 
 import com.baomidou.mybatisplus.annotation.IdType
 import com.baomidou.mybatisplus.core.mapper.BaseMapper
-import com.baomidou.mybatisplus.core.toolkit.ClassUtils
 import com.baomidou.mybatisplus.generator.FastAutoGenerator
 import com.baomidou.mybatisplus.generator.config.*
 import com.baomidou.mybatisplus.generator.config.po.TableField.MetaInfo
@@ -16,9 +15,9 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine
 import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler
 import com.baomidou.mybatisplus.generator.type.TypeRegistry
-import com.withoutcat.dto.DataSource
-import com.withoutcat.dto.GitUser
-import org.springframework.core.io.ClassPathResource
+import com.withoutcat.generator.dto.DataSource
+import com.withoutcat.generator.dto.GitUser
+
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.sql.Types
@@ -27,18 +26,6 @@ import java.util.*
 fun main() {
     println(Thread().contextClassLoader.getResource("templates/entity.kt.ftl")?.path)
 
-}
-
-fun readSelfResources(): String {
-    ClassPathResource("application-common-dev.yaml").inputStream.use {
-        val properties = Properties()
-        properties.load(it)
-        val url = properties.getProperty("spring.datasource.url")
-        val hello = properties.getProperty("hello")
-        val username = properties.getProperty("spring.datasource.username")
-        val password = properties.getProperty("spring.datasource.password")
-        return hello
-    }
 }
 
 
@@ -80,7 +67,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
             .dateType(DateType.TIME_PACK) // 设置日期类型为 java8 下的 java.time 类型
             .disableOpenDir() // 禁止生成后打开输出目录
 //            .fileOverride() // 覆盖已生成文件 已替换成enableFileOverride()
-            .outputDir("${System.getProperty("user.dir")}/src/main/kotlin") // 指定输出目录
+            .outputDir("${System.getProperty("user.dir")}/src/main/kotlin") // 指定输出目录，注意！！！是相对于调用放的路径！！！
     }.dataSourceConfig { builder: DataSourceConfig.Builder -> // 可选配置
         builder.typeConvertHandler { globalConfig: GlobalConfig?, typeRegistry: TypeRegistry, metaInfo: MetaInfo ->
             val typeCode = metaInfo.jdbcType.TYPE_CODE
