@@ -1,7 +1,12 @@
 package com.withoutcat.user.controller
 
-import com.withoutcat.user.domain.LoginUser
+import com.withoutcat.user.data.dto.LoginRequestDTO
+import com.withoutcat.user.data.dto.LoginResponseDTO
+import com.withoutcat.user.service.UserCustomerService
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Mono
@@ -16,10 +21,15 @@ import reactor.core.publisher.Mono
  */
 @RestController
 @RequestMapping("/customer")
-class UserCustomerController {
+class UserCustomerController(
+    @Autowired
+    private val userCustomerService: UserCustomerService,
+) {
+
 //    @PostMapping("/login")
-//    fun login(): Mono<LoginUser> {
+//    fun login(@Validated @RequestBody loginRequestDTO: LoginRequestDTO): Mono<LoginResponseDTO> {
 //        // 访问
+//        userCustomerService
 //    }
 
 }

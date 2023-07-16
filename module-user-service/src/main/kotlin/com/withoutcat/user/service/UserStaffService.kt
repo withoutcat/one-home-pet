@@ -1,7 +1,7 @@
-package com.withoutcat.user.service;
+package com.withoutcat.user.service
 
-import com.withoutcat.user.entity.UserStaff;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.withoutcat.user.entity.UserStaff
+import com.baomidou.mybatisplus.extension.service.IService
 
 /**
  * <p>

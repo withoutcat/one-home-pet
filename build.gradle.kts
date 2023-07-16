@@ -63,12 +63,12 @@ ext {
 // dependencyManagement只是对全局依赖进行版本声明，不会引入任何依赖
 dependencyManagement {
     imports {
-        // spring cloud 套件
+        // ------------- spring cloud 套件 -------------
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
         mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${property("eurekaVersion")}")
         mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
         mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0")
-        // springboot 套件
+        // ------------- springboot 套件 -------------
         mavenBom("org.springframework.boot:spring-boot-starter:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-dependencies:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-test:${property("springBootVersion")}")
@@ -76,6 +76,8 @@ dependencyManagement {
         mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-webflux:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-data-jdbc:${property("springBootVersion")}")
+        // controller 参数校验
+        mavenBom("org.springframework.boot:spring-boot-starter-validation:${property("springBootVersion")}")
         // runtimeOnly
         mavenBom("com.h2database:h2:2.2.220")
         // runtimeOnly

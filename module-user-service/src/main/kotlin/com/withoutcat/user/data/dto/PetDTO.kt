@@ -1,4 +1,4 @@
-package com.withoutcat.user.dto
+package com.withoutcat.user.data.dto
 
 /**
  * 从PetService请求的Pet基本数据
@@ -8,8 +8,8 @@ package com.withoutcat.user.dto
  * @property type
  * @constructor Create empty Pet
  */
-open class Pet(
-    private val id: String,
-    private val name: String,
-    private val type: String,
+data class PetDTO(
+    val id: String,
+    val name: String,
+    val type: String,
 )

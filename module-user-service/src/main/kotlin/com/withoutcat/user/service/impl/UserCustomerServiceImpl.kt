@@ -15,6 +15,9 @@ import org.springframework.stereotype.Service
  * @since 2023-07-11
  */
 @Service
-open class UserCustomerServiceImpl : ServiceImpl<UserCustomerMapper, UserCustomer>(), UserCustomerService {
+class UserCustomerServiceImpl : ServiceImpl<UserCustomerMapper, UserCustomer>(), UserCustomerService {
+    override fun getCustomerByUsername(username: String) {
+        TODO("Not yet implemented")
+    }
 
 }

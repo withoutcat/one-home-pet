@@ -1,7 +1,8 @@
-package com.withoutcat.user.service;
+package com.withoutcat.user.service
 
-import com.withoutcat.user.entity.User;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.withoutcat.user.entity.User
+import com.baomidou.mybatisplus.extension.service.IService
+import com.withoutcat.user.data.enums.UserType
 
 /**
  * <p>
@@ -11,4 +12,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author withoutcat
  * @since 2023-07-11
  */
-interface UserService : IService<User>
+interface UserService : IService<User> {
+    fun getUserByType(userType: UserType)
+}
