@@ -1,25 +1,37 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    java
+    id("java")
     id("org.springframework.boot")
+    // 不加这个配置文件里的spring.devtools.restart.enabled就不生效
     id("io.spring.dependency-management")
     kotlin("jvm")
     kotlin("plugin.spring")
 }
 
-group = "com.withoutcat.eureka"
-version = "1.0-SNAPSHOT"
-
+group = "com.withoutcat.pet"
 
 dependencies {
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${property("eurekaVersion")}")
-    // eureka服务器需要的是spring-boot-web的 servlet服务器，并不是webflux
-//    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    // springboot 套件
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
+    // 这里不应该指定版本号，但是不知道是不是BUG,不给版本号就编译失败
+    implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
+    runtimeOnly("com.mysql:mysql-connector-j")
+    testImplementation(project(":module-generator-lib"))
+    implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
+    // 提供更多的注解还有Lambda表达式，如果是junit4的话，需要在测试类上加@RunWith(SpringRunner::class)
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+
 }
 
-tasks.test {
+tasks.withType<Test> {
     useJUnitPlatform()
 }
 

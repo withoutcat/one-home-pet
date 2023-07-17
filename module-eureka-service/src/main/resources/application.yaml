@@ -1,6 +1,9 @@
 server:
   port: 8761
 spring:
+  main:
+    # 其他选项可能会导致重启失败：端口被占用的错误
+    web-application-type: servlet
   application:
     # eureka的服务名
     name: eureka-service

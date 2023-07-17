@@ -1,9 +1,3 @@
-spring:
-  devtools:
-    restart:
-      enabled: true
-      exclude: static/**,public/**
-
 # eureka自己把自己也注册成一个服务
 eureka:
   client:

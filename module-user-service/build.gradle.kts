@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	java
 	id("org.springframework.boot")
+	// 不加这个配置文件里的spring.devtools.restart.enabled就不生效
 	id("io.spring.dependency-management")
 	kotlin("jvm")
 	kotlin("plugin.serialization")
@@ -18,10 +19,6 @@ configurations {
 }
 
 dependencies {
-
-
-
-
 	// springboot 套件
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
