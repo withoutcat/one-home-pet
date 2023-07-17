@@ -1,10 +1,10 @@
 package com.withoutcat.user.service.impl
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper
-import com.withoutcat.user.entity.UserStaff
+import com.withoutcat.user.data.entity.UserStaff
 import com.withoutcat.user.mapper.UserStaffMapper
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
-import com.withoutcat.user.entity.User
+import com.withoutcat.user.data.entity.User
 import com.withoutcat.user.service.UserService
 import com.withoutcat.user.service.UserStaffService
 import org.springframework.stereotype.Service

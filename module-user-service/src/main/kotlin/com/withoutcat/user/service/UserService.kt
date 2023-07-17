@@ -1,8 +1,7 @@
 package com.withoutcat.user.service
 
-import com.withoutcat.user.entity.User
+import com.withoutcat.user.data.entity.User
 import com.baomidou.mybatisplus.extension.service.IService
-import com.withoutcat.user.data.enums.UserType
 
 /**
  * <p>
@@ -13,5 +12,11 @@ import com.withoutcat.user.data.enums.UserType
  * @since 2023-07-11
  */
 interface UserService : IService<User> {
-    fun getUserByType(userType: UserType)
+    /**
+     * 根据用户的类型和用户的账号获取用户的信息
+     *
+     * @param user 使用user的协变类型
+     * @return 返回user的协变类型
+     */
+    fun getUserByAccount(user: User): User?
 }

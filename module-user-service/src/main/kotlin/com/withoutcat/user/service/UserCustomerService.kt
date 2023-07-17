@@ -1,7 +1,12 @@
 package com.withoutcat.user.service
 
-import com.withoutcat.user.entity.UserCustomer
+import com.baomidou.mybatisplus.core.conditions.AbstractWrapper
+import com.baomidou.mybatisplus.core.conditions.Wrapper
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
+import com.withoutcat.user.data.entity.UserCustomer
 import com.baomidou.mybatisplus.extension.service.IService
+import com.withoutcat.user.data.entity.User
+import com.withoutcat.user.data.vo.UserCustomerVO
 
 /**
  * <p>
@@ -14,10 +19,10 @@ import com.baomidou.mybatisplus.extension.service.IService
 interface UserCustomerService : IService<UserCustomer> {
 
     /**
-     * 通过用户的登录名查询到用户的完整信息
+     * 根据传入的wrapper查询客户的信息
      *
-     * @param username
-     * @return
+     * @param wrapper 查询条件
+     * @return User的协变类型
      */
-    fun getCustomerByUsername(username: String)
+    fun getCustomerByWrapper(wrapper: Wrapper<UserCustomerVO>): UserCustomerVO?
 }

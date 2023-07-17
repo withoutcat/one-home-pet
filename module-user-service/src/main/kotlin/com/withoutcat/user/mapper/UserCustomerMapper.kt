@@ -1,8 +1,12 @@
-package com.withoutcat.user.mapper;
+package com.withoutcat.user.mapper
 
-import com.withoutcat.user.entity.UserCustomer;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.conditions.Wrapper
+import com.withoutcat.user.data.entity.UserCustomer
+import com.baomidou.mybatisplus.core.mapper.BaseMapper
+import com.baomidou.mybatisplus.core.toolkit.Constants
+import com.withoutcat.user.data.vo.UserCustomerVO
 import org.apache.ibatis.annotations.Mapper
+import org.apache.ibatis.annotations.Param
 
 /**
  * <p>
@@ -12,4 +16,8 @@ import org.apache.ibatis.annotations.Mapper
  * @author withoutcat
  * @since 2023-07-11
  */
-interface UserCustomerMapper : BaseMapper<UserCustomer>
+@Mapper
+interface UserCustomerMapper : BaseMapper<UserCustomer> {
+
+    fun getCustomerByWrapper(@Param(Constants.WRAPPER) wrapper: Wrapper<UserCustomerVO>): UserCustomerVO
+}

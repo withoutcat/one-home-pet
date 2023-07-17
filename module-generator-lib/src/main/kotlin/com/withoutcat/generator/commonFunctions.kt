@@ -99,15 +99,15 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
             .addTablePrefix("t_", "c_", "v_") // 设置过滤表前缀
 
             .entityBuilder() // Entity 策略配置
-            .enableTableFieldAnnotation()       // 开启生成实体时生成字段注解
+            .enableTableFieldAnnotation() // 开启生成实体时生成字段注解
             .naming(NamingStrategy.underline_to_camel)  //数据库表映射到实体的命名策略：下划线转驼峰命
-            .columnNaming(NamingStrategy.underline_to_camel)    //数据库表字段映射到实体的命名策略：下划线转驼峰命
-            .disableSerialVersionUID()  //不实现 Serializable 接口，不生产 SerialVersionUID
+            .columnNaming(NamingStrategy.underline_to_camel) //数据库表字段映射到实体的命名策略：下划线转驼峰命
+            .disableSerialVersionUID() //不实现 Serializable 接口，不生产 SerialVersionUID
             // .enableChainModel() // 开启链式模型 kotlin因为使用data class 没有set方法，所以给属性赋值是没有返回值的
             // .enableLombok() // 开启 lombok 模型 kotlin有data class 基本不需要lombok
             .enableActiveRecord() // 开启 ActiveRecord 模式
             .idType(IdType.ASSIGN_UUID) // 主键类型
-            .enableFileOverride() // 覆盖已生成文件 注意只有实体类才有覆盖的必要，其他层里会有业务代码不要开启覆盖！
+            // .enableFileOverride() // 覆盖已生成文件 注意只有实体类才有覆盖的必要，其他层里会有业务代码不要开启覆盖！
 
             .serviceBuilder() // Service 策略配置
             .formatServiceFileName("%sService") //格式化 service 接口文件名称，%s进行匹配表名，如 UserService
@@ -123,9 +123,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
         // 自定义实体类模板，把官方的模板抄过来改了一下
         // kotlin应该使用实体类, 参数是classPath下的templates/entity.kt
         builder.entityKt("templates/entity.kt")
-    }
-
-        .templateEngine(FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板，注意必须手动引入依赖
+    }.templateEngine(FreemarkerTemplateEngine()) // 使用Freemarker引擎模板，默认的是Velocity引擎模板，注意必须手动引入依赖
         .execute()
 }
 

@@ -6,12 +6,11 @@ package com.withoutcat.user.data.enums
  */
 enum class UserType {
     /**
-     * 店内员工
-     */
-    STAFF,
-
-    /**
      * 客户
      */
     CUSTOMER,
+    /**
+     * 店内员工
+     */
+    STAFF,
 }

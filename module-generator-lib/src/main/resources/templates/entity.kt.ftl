@@ -28,6 +28,7 @@ import io.swagger.annotations.ApiModelProperty
 data class ${entity} (
 <#-- ----------  BEGIN 字段循环遍历  ---------->
 <#list table.fields as field>
+
     <#if field.keyFlag>
         <#assign keyPropertyName="${field.propertyName}"/>
     </#if>
@@ -73,11 +74,11 @@ data class ${entity} (
     </#if>
 <#-- 数据库所有字段均为not null -->
     <#if field.propertyType == "Integer">
-    val ${field.propertyName}: Int,
+    val ${field.propertyName}: Int?,
     <#elseif field.propertyType == "Object">
-    val ${field.propertyName}: Any,
+    val ${field.propertyName}: Any?,
     <#else>
-    val ${field.propertyName}: ${field.propertyType},
+    val ${field.propertyName}: ${field.propertyType}?,
     </#if>
 </#list>
 <#-- ----------  END 字段循环遍历  ---------->

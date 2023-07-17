@@ -1,6 +1,6 @@
 package com.withoutcat.user.mapper;
 
-import com.withoutcat.user.entity.User;
+import com.withoutcat.user.data.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper
 
@@ -12,4 +12,6 @@ import org.apache.ibatis.annotations.Mapper
  * @author withoutcat
  * @since 2023-07-11
  */
-interface UserMapper : BaseMapper<User>
+interface UserMapper : BaseMapper<User> {
+
+}

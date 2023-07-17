@@ -1,4 +1,4 @@
-package com.withoutcat.user.entity
+package com.withoutcat.user.data.entity
 
 import com.baomidou.mybatisplus.annotation.IdType
 import com.baomidou.mybatisplus.annotation.TableField

@@ -1,6 +1,6 @@
 package com.withoutcat.user.service
 
-import com.withoutcat.user.entity.UserStaff
+import com.withoutcat.user.data.entity.UserStaff
 import com.baomidou.mybatisplus.extension.service.IService
 
 /**

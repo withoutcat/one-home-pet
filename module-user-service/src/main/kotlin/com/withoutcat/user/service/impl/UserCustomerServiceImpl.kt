@@ -1,9 +1,13 @@
 package com.withoutcat.user.service.impl
 
-import com.withoutcat.user.entity.UserCustomer
+import com.baomidou.mybatisplus.core.conditions.Wrapper
+import com.withoutcat.user.data.entity.UserCustomer
 import com.withoutcat.user.mapper.UserCustomerMapper
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
+import com.withoutcat.user.data.entity.User
+import com.withoutcat.user.data.vo.UserCustomerVO
 import com.withoutcat.user.service.UserCustomerService
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 /**
@@ -15,9 +19,13 @@ import org.springframework.stereotype.Service
  * @since 2023-07-11
  */
 @Service
-class UserCustomerServiceImpl : ServiceImpl<UserCustomerMapper, UserCustomer>(), UserCustomerService {
-    override fun getCustomerByUsername(username: String) {
-        TODO("Not yet implemented")
+class UserCustomerServiceImpl(
+    @Autowired
+    val userCustomerMapper: UserCustomerMapper
+) : ServiceImpl<UserCustomerMapper, UserCustomer>(), UserCustomerService {
+    override fun getCustomerByWrapper(wrapper: Wrapper<UserCustomerVO>): UserCustomerVO? {
+        return userCustomerMapper.getCustomerByWrapper(wrapper)
     }
+
 
 }
