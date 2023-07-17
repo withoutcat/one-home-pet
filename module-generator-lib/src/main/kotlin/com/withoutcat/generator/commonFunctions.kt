@@ -54,7 +54,7 @@ val gitUser = lazy {
  * 调用Mybatis Plus的逆向工程生成实体类
  *
  */
-fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
+fun entityGenerator(dataSource: DataSource, tables: Array<String>, upperPackageName: String) {
     FastAutoGenerator.create(
         dataSource.url,
         dataSource.username,
@@ -80,7 +80,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>) {
             .dbQuery(MySqlQuery())
             .keyWordsHandler(MySqlKeyWordsHandler())
     }.packageConfig { builder: PackageConfig.Builder ->
-        builder.parent("com.withoutcat.user") // 设置父包名
+        builder.parent("com.withoutcat.${upperPackageName}") // 设置父包名
 //            .moduleName("module-user-service") // 设置父包模块名
             .entity("entity") // 设置Entity包名，默认entity
             .service("service") // 设置Service包名，默认service

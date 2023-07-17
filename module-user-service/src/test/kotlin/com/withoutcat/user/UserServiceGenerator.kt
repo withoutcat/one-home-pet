@@ -20,7 +20,7 @@ import java.util.*
     classes = [UserServiceApplication::class],
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
-class UserServiceApplicationTests {
+class UserServiceGenerator {
     @Value("\${spring.datasource.url}")
     lateinit var url: String
 
@@ -34,7 +34,8 @@ class UserServiceApplicationTests {
     fun generator() {
         entityGenerator(
             DataSource(url, username, password),
-            arrayOf("t_user", "t_user_customer", "t_user_staff")
+            arrayOf("t_user", "t_user_customer", "t_user_staff"),
+            "user"
         )
     }
 
