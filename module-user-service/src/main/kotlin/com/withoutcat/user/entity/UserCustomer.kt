@@ -34,7 +34,7 @@ data class UserCustomer (
     val remark: String,
 ) : Model<UserCustomer>() {
 
-    override fun pkVal(): Serializable? {
+    override fun pkVal(): Serializable {
         return id
     }
 

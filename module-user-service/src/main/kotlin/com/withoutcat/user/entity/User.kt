@@ -53,7 +53,7 @@ data class User (
     val updateBy: String,
 ) : Model<User>() {
 
-    override fun pkVal(): Serializable? {
+    override fun pkVal(): Serializable {
         return id
     }
 

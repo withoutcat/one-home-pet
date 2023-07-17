@@ -19,16 +19,16 @@ import io.swagger.v3.oas.annotations.media.Schema
 data class UserStaff (
     @Schema(description = "fk: t_user.id")
     @TableId(value = "id", type = IdType.ASSIGN_UUID)
-    val id: String?,
+    val id: String,
     @Schema(description = "职位")
     @TableField("position")
-    val position: String?,
+    val position: String,
     @Schema(description = "工资")
     @TableField("salary")
-    val salary: Double?,
+    val salary: Double,
 ) : Model<UserStaff>() {
 
-    override fun pkVal(): Serializable? {
+    override fun pkVal(): Serializable {
         return id
     }
 
