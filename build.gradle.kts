@@ -54,20 +54,26 @@ ext {
     set("junitVersion", "5.9.1")
     set("springCloudVersion", "2022.0.3")
     set("springBootVersion", "3.1.1")
+    set("feignVersion", "4.0.3")
     set("mybatisPlusVersion", "3.5.3.1")
     set("eurekaVersion", "4.0.2")
     set("lombokVersion", "1.18.28")
+    set("kotlinxJsonVersion", "1.5.1")
 }
 
 // 依赖管理，定义了全局的依赖版本，子工程会继承这里定义好的版本号，除非重写
 // dependencyManagement只是对全局依赖进行版本声明，不会引入任何依赖
 dependencyManagement {
     imports {
+        mavenBom("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
+
         // ------------- spring cloud 套件 -------------
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
         mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${property("eurekaVersion")}")
         mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
         mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0")
+        mavenBom("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
+
         // ------------- springboot 套件 -------------
         mavenBom("org.springframework.boot:spring-boot-starter:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-dependencies:${property("springBootVersion")}")

@@ -5,6 +5,7 @@ plugins {
     id("org.springframework.boot")
     // 不加这个配置文件里的spring.devtools.restart.enabled就不生效
     id("io.spring.dependency-management")
+    kotlin("plugin.serialization")
     kotlin("jvm")
     kotlin("plugin.spring")
 }
@@ -12,6 +13,9 @@ plugins {
 group = "com.withoutcat.pet"
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
+
+
     // springboot 套件
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -20,6 +24,7 @@ dependencies {
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
     // 这里不应该指定版本号，但是不知道是不是BUG,不给版本号就编译失败
     implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")

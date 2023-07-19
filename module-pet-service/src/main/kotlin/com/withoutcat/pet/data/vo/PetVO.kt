@@ -1,10 +1,11 @@
 package com.withoutcat.pet.data.vo
 
-import com.baomidou.mybatisplus.annotation.EnumValue
-import com.baomidou.mybatisplus.annotation.TableField
 import com.withoutcat.pet.data.entity.Pet
 import com.withoutcat.pet.data.enums.BreedFamily
+import kotlinx.serialization.Serializable
 import java.time.LocalDateTime
+
+
 
 class PetVO(
     id: String,
@@ -19,4 +20,6 @@ class PetVO(
     createBy: String,
     updateTime: LocalDateTime,
     updateBy: String,
-) : Pet(id, name, breedId, ownerId, deleted, createTime, createBy, updateTime, updateBy)
+) : Pet(id, name, breedId, ownerId, deleted, createTime, createBy, updateTime, updateBy) {
+
+}

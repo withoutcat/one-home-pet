@@ -6,3 +6,4 @@ include(
     "module-generator-lib",
     "module-pet-service"
 )
+include("module-feign-client")

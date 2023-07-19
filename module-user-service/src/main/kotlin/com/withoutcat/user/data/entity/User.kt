@@ -9,6 +9,7 @@ import com.withoutcat.user.data.enums.UserType
 import java.io.Serializable
 import java.time.LocalDateTime
 import io.swagger.v3.oas.annotations.media.Schema
+import kotlinx.serialization.Contextual
 
 /**
  * ## 用户的基本信息抽象表
@@ -18,6 +19,7 @@ import io.swagger.v3.oas.annotations.media.Schema
  */
 @TableName("t_user")
 @Schema(name = "User对象", description = "用户的基本信息抽象表")
+@kotlinx.serialization.Serializable
 open class User (
     @Schema(description = "由32字符的UUID组成的主键")
     @TableId(value = "id", type = IdType.ASSIGN_UUID)
@@ -47,12 +49,14 @@ open class User (
     var deleted: Byte,
     @Schema(description = "创建时间")
     @TableField("create_time")
+    @Contextual
     var createTime: LocalDateTime,
     @Schema(description = "创建人id")
     @TableField("create_by")
     var createBy: String,
     @Schema(description = "最后一次更新时间")
     @TableField("update_time")
+    @Contextual
     var updateTime: LocalDateTime,
     @Schema(description = "最后一次更新人id")
     @TableField("update_by")

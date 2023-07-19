@@ -9,3 +9,4 @@ class UserCustomerVO(account: String) : User(account, UserType.CUSTOMER) {
     var vipDiscountId: String = ""
     var remark: String = ""
 }
+

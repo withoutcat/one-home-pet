@@ -19,6 +19,9 @@ configurations {
 }
 
 dependencies {
+	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
+
+
 	// springboot 套件
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
@@ -27,6 +30,8 @@ dependencies {
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
+	// springcloud
+	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
 	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
 
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
