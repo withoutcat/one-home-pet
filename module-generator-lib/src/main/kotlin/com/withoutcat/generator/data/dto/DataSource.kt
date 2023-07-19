@@ -1,4 +1,4 @@
-package com.withoutcat.generator.dto
+package com.withoutcat.generator.data.dto
 
 
 

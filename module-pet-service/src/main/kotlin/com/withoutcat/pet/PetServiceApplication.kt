@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 
-@MapperScan("com.withoutcat.user.mapper")
+@MapperScan("com.withoutcat.pet.mapper")
 @SpringBootApplication
 class PetServiceApplication
 

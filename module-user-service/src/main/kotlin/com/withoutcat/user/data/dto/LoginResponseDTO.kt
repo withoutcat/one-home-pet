@@ -14,5 +14,5 @@ data class LoginResponseDTO(
     val id: String,
     val name: String,
     val phone: String,
-    val petDto: PetDTO,
+//    val petDto: PetDTO,
 )

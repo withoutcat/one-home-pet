@@ -2,8 +2,6 @@ package com.withoutcat.user.controller
 
 import com.withoutcat.user.data.vo.UserCustomerVO
 import com.withoutcat.user.data.dto.LoginRequestDTO
-import com.withoutcat.user.data.dto.LoginResponseDTO
-import com.withoutcat.user.data.dto.PetDTO
 import com.withoutcat.user.service.UserCustomerService
 import com.withoutcat.user.service.UserService
 import org.springframework.beans.factory.annotation.Autowired
@@ -34,11 +32,17 @@ class UserCustomerController(
 
     @PostMapping("/login")
     fun login(@Validated @RequestBody loginRequestDTO: LoginRequestDTO): Mono<UserCustomerVO> {
+
         val user = UserCustomerVO(loginRequestDTO.account).apply {
             password = loginRequestDTO.password
         }
+
         val res = userService.getUserByAccount(user) as UserCustomerVO?
-        return res?.let { Mono.just(it) } ?: Mono.empty()
+        return res?.let {u ->
+            Mono.just(u).doOnNext {
+                
+            }
+        } ?: Mono.empty()
     }
 
 }

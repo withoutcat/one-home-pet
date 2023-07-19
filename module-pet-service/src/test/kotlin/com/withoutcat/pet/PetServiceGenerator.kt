@@ -1,6 +1,6 @@
 package com.withoutcat.pet
 
-import com.withoutcat.generator.dto.DataSource
+import com.withoutcat.generator.data.dto.DataSource
 import com.withoutcat.generator.entityGenerator
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Value
@@ -22,8 +22,8 @@ class PetServiceGenerator {
     fun generator() {
         entityGenerator(
             DataSource(url, username, password),
-            arrayOf("t_pet"),
-            "pet"
+            "pet",
+            "t_pet_breed",
         )
     }
 }

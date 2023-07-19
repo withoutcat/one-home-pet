@@ -15,8 +15,9 @@ import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy
 import com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine
 import com.baomidou.mybatisplus.generator.keywords.MySqlKeyWordsHandler
 import com.baomidou.mybatisplus.generator.type.TypeRegistry
-import com.withoutcat.generator.dto.DataSource
-import com.withoutcat.generator.dto.GitUser
+import com.withoutcat.generator.data.dto.DataSource
+import com.withoutcat.generator.data.dto.GitUser
+import org.apache.ibatis.annotations.Mapper
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -53,8 +54,11 @@ val gitUser = lazy {
 /**
  * 调用Mybatis Plus的逆向工程生成实体类
  *
+ * @param dataSource 数据连接信息
+ * @param tables 需要逆向工程生成的表名
+ * @param upperPackageName 这个模块的外层包名
  */
-fun entityGenerator(dataSource: DataSource, tables: Array<String>, upperPackageName: String) {
+fun entityGenerator(dataSource: DataSource, upperPackageName: String,vararg tables: String) {
     FastAutoGenerator.create(
         dataSource.url,
         dataSource.username,
@@ -82,7 +86,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>, upperPackageN
     }.packageConfig { builder: PackageConfig.Builder ->
         builder.parent("com.withoutcat.${upperPackageName}") // 设置父包名
 //            .moduleName("module-user-service") // 设置父包模块名
-            .entity("entity") // 设置Entity包名，默认entity
+            .entity("data.entity") // 设置Entity包名，默认entity
             .service("service") // 设置Service包名，默认service
             .serviceImpl("service.impl") // 设置Service Impl包名，默认service.impl
             .mapper("mapper") // 设置Mapper包名，默认mapper
@@ -107,7 +111,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>, upperPackageN
             // .enableLombok() // 开启 lombok 模型 kotlin有data class 基本不需要lombok
             .enableActiveRecord() // 开启 ActiveRecord 模式
             .idType(IdType.ASSIGN_UUID) // 主键类型
-            // .enableFileOverride() // 覆盖已生成文件 注意只有实体类才有覆盖的必要，其他层里会有业务代码不要开启覆盖！
+            .enableFileOverride() // 覆盖已生成文件 注意只有实体类才有覆盖的必要，其他层里会有业务代码不要开启覆盖！
 
             .serviceBuilder() // Service 策略配置
             .formatServiceFileName("%sService") //格式化 service 接口文件名称，%s进行匹配表名，如 UserService
@@ -118,6 +122,7 @@ fun entityGenerator(dataSource: DataSource, tables: Array<String>, upperPackageN
             .enableRestStyle()  //开启生成 @RestController 控制器
 
             .mapperBuilder() // Mapper 策略配置
+            .mapperAnnotation(Mapper::class.java) // 设置Mapper注解
             .superClass(BaseMapper::class.java) //设置父类
     }.templateConfig { builder: TemplateConfig.Builder ->
         // 自定义实体类模板，把官方的模板抄过来改了一下

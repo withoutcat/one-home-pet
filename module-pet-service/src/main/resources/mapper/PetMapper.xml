@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.withoutcat.pet.mapper.PetMapper">
-
+    <select id="selectPetVOList" resultType="com.withoutcat.pet.data.vo.PetVO">
+        select
+            p.id,
+            p.name,
+            p.breed_id,
+            pb.name as breed_name,
+            pb.family as breed_family,
+            p.owner_id,
+            p.deleted,
+            p.create_time,
+            p.create_by,
+            p.update_time,
+            p.update_by
+        from t_pet p left join t_pet_breed pb using(breed_id)
+        ${ew.customSqlSegment}
+    </select>
 </mapper>

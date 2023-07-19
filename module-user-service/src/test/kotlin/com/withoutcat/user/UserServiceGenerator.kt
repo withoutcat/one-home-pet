@@ -1,13 +1,12 @@
 package com.withoutcat.user
 
 
-import com.withoutcat.generator.dto.DataSource
+import com.withoutcat.generator.data.dto.DataSource
 import com.withoutcat.generator.entityGenerator
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.test.context.SpringBootTest
 import java.util.*
-
 
 
 /**
@@ -34,15 +33,8 @@ class UserServiceGenerator {
     fun generator() {
         entityGenerator(
             DataSource(url, username, password),
-            arrayOf("t_user", "t_user_customer", "t_user_staff"),
-            "user"
+            "user",
+            "t_user", "t_user_customer", "t_user_staff",
         )
     }
-
-    @Test
-    fun contextLoads() {
-//        println(password)
-//        println(User(id = "36cb60d41d8711ee879700155def6531").selectById())
-    }
-
 }
