@@ -1,11 +1,11 @@
 server:
-  port: 8083
+  port: 8090
 
 spring:
   main:
     web-application-type: servlet
   application:
-    name: pet-service
+    name: feign-client
   profiles:
     # 默认配置文件会使用dev的数据库配置
     include:

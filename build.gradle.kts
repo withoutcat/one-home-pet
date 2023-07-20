@@ -80,8 +80,9 @@ dependencyManagement {
         mavenBom("org.springframework.boot:spring-boot-starter-test:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-web:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
-        mavenBom("org.springframework.boot:spring-boot-starter-webflux:${property("springBootVersion")}")
+//        mavenBom("org.springframework.boot:spring-boot-starter-webflux:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-data-jdbc:${property("springBootVersion")}")
+        mavenBom("org.springframework.boot:spring-boot-starter-data-redis:${property("springBootVersion")}")
         // controller 参数校验
         mavenBom("org.springframework.boot:spring-boot-starter-validation:${property("springBootVersion")}")
         // runtimeOnly
@@ -113,8 +114,6 @@ dependencyManagement {
         mavenBom("io.projectreactor:reactor-tools:3.5.7")
         mavenBom("org.junit.jupiter:junit-jupiter-api:5.9.3")
         mavenBom("io.swagger.core.v3:swagger-annotations:2.2.15")
-
-
     }
 }
 

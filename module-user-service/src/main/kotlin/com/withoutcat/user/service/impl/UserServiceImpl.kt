@@ -1,6 +1,5 @@
 package com.withoutcat.user.service.impl
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper
 import com.withoutcat.user.data.entity.User
 import com.withoutcat.user.mapper.UserMapper
@@ -10,7 +9,6 @@ import com.withoutcat.user.data.vo.UserCustomerVO
 import com.withoutcat.user.data.enums.UserType
 import com.withoutcat.user.service.UserCustomerService
 import com.withoutcat.user.utils.MessageDigestUtils
-import kotlinx.coroutines.runBlocking
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -48,6 +46,8 @@ class UserServiceImpl(
             UserType.STAFF -> {
                 UserCustomerVO("123")
             }
+
+            UserType.ADMIN -> TODO()
         }
     }
 

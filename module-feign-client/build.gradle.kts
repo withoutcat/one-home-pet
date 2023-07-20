@@ -10,33 +10,23 @@ plugins {
     kotlin("plugin.spring")
 }
 
-group = "com.withoutcat.pet"
+group = "com.withoutcat.feign"
+
+
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
-
-
-    // springboot 套件
-        implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-web")
 //    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-    implementation("org.springframework.boot:spring-boot-starter-data-redis")
-    developmentOnly("org.springframework.boot:spring-boot-devtools")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-
-
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
-    // 这里不应该指定版本号，但是不知道是不是BUG,不给版本号就编译失败
-    implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
-    runtimeOnly("com.mysql:mysql-connector-j")
-    testImplementation(project(":module-generator-lib"))
-    implementation(project(":module-feign-client"))
-    implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
+
+
+
+    developmentOnly("org.springframework.boot:spring-boot-devtools")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
     // 提供更多的注解还有Lambda表达式，如果是junit4的话，需要在测试类上加@RunWith(SpringRunner::class)
     testImplementation("org.junit.jupiter:junit-jupiter-api")
-
 }
 
 tasks.withType<Test> {

@@ -2,7 +2,6 @@ package com.withoutcat.pet.data.vo
 
 import com.withoutcat.pet.data.entity.Pet
 import com.withoutcat.pet.data.enums.BreedFamily
-import kotlinx.serialization.Serializable
 import java.time.LocalDateTime
 
 

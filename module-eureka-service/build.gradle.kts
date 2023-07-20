@@ -9,7 +9,6 @@ plugins {
 }
 
 group = "com.withoutcat.eureka"
-version = "1.0-SNAPSHOT"
 
 
 dependencies {

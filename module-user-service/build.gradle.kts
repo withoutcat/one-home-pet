@@ -23,7 +23,8 @@ dependencies {
 
 
 	// springboot 套件
-	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+//	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
@@ -45,6 +46,7 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok:${property("lombokVersion")}")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation(project(":module-generator-lib"))
+	implementation(project(":module-feign-client"))
 	implementation("io.swagger.core.v3:swagger-annotations:2.2.15")
 	developmentOnly("io.projectreactor:reactor-tools")
 	// 提供更多的注解还有Lambda表达式，如果是junit4的话，需要在测试类上加@RunWith(SpringRunner::class)

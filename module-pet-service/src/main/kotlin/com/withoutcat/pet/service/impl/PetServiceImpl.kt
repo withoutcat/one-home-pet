@@ -6,6 +6,7 @@ import com.withoutcat.pet.mapper.PetMapper
 import com.withoutcat.pet.service.PetService
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl
 import com.withoutcat.pet.data.vo.PetVO
+import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
@@ -22,7 +23,9 @@ class PetServiceImpl(
     @Autowired
     val petMapper: PetMapper
 ) : ServiceImpl<PetMapper, Pet>(), PetService {
+    private val logger = LoggerFactory.getLogger(this::class.java)
     override fun getPetVOsByOwnerId(id: String): List<PetVO> {
+        logger.info("查询repo: selectPetVOList")
         val wrapper = QueryWrapper<PetVO>().eq("p.owner_id", id)
         return petMapper.selectPetVOList(wrapper)
     }

@@ -1,8 +1,6 @@
-package com.withoutcat.user.data.dto
+package com.withoutcat.feign.dto.pet
 
-import kotlinx.serialization.Serializable
 
-@Serializable
 data class PetDTO(
     val id: String,
     val name: String,
@@ -10,5 +8,4 @@ data class PetDTO(
     val breedName: String,
     val breedFamily: String,
     val ownerId: String,
-
 )
