@@ -16,7 +16,7 @@ group = "com.withoutcat.feign"
 
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
-    implementation("org.springframework.boot:spring-boot-starter-web")
+//    implementation("org.springframework.boot:spring-boot-starter-web")
 //    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")

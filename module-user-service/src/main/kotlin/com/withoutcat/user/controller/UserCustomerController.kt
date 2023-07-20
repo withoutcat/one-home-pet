@@ -41,7 +41,7 @@ class UserCustomerController(
 
     @GetMapping("/health")
     fun healthCheck(): String {
-       return petService.healthCheck()
+        return petService.healthCheck()
     }
 
     @PostMapping("/login")
@@ -49,12 +49,15 @@ class UserCustomerController(
         logger.info("#### /customer/login #### 开始，请求参数 : $loginRequestDTO")
         return UserCustomerVO(loginRequestDTO.account)
             .apply { password = loginRequestDTO.password }
-            .toUserCustomerDTO()
-            .also { logger.info("请求pet服务") }
-            .apply { this.pets = petService.getPetByOwner(id) }
-            .also {
-                logger.info("pet信息: ${it.pets}")
-                logger.info("#### /customer/login #### 结束")
-            }
+            .let { userService.getUserByAccount(it) as UserCustomerVO? }
+            ?.let {
+                it.toUserCustomerDTO()
+                    .also { logger.info("请求pet服务") }
+                    .apply { this.pets = petService.getPetByOwner(id) }
+                    .also {
+                        logger.info("pet信息: ${it.pets}")
+                        logger.info("#### /customer/login #### 结束")
+                    }
+            } ?: throw Exception("用户不存在")
     }
 }

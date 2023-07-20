@@ -1,7 +1,6 @@
 package com.withoutcat.user.data.vo
 
 import com.withoutcat.feign.dto.user.UserCustomerDTO
-import com.withoutcat.feign.dto.user.UserDTO
 import com.withoutcat.user.data.entity.User
 import com.withoutcat.user.data.enums.UserType
 
