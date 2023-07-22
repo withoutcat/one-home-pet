@@ -2,14 +2,14 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     java
-    id("org.springframework.boot") version "3.1.1"
+    id("org.springframework.boot")
     // io.spring.dependency-management 插件主要提供了一个标准方式来导入 Bill of Materials (BOM)
     // 它不包含具体的 Spring Boot 或 Spring Cloud 的依赖管理。
-    id("io.spring.dependency-management") version "1.1.0"
-    kotlin("jvm") version "1.9.0"
-    kotlin("plugin.serialization") version "1.9.0"
-    kotlin("plugin.spring") version "1.9.0"
-    kotlin("plugin.jpa") version "1.9.0"
+    id("io.spring.dependency-management")
+    kotlin("jvm")
+    kotlin("plugin.serialization")
+    kotlin("plugin.spring")
+    kotlin("plugin.jpa")
 }
 
 group = "com.withoutcat.generator"

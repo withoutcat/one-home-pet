@@ -1,9 +1,9 @@
 plugins {
     java
-    id("org.springframework.boot") version "3.1.1"
+    id("org.springframework.boot") version "3.0.9"
     // io.spring.dependency-management 插件主要提供了一个标准方式来导入 Bill of Materials (BOM)
     // 它不包含具体的 Spring Boot 或 Spring Cloud 的依赖管理。
-    id("io.spring.dependency-management") version "1.1.0"
+    id("io.spring.dependency-management") version "1.1.2"
     kotlin("jvm") version "1.9.0"
     kotlin("plugin.serialization") version "1.9.0"
     kotlin("plugin.spring") version "1.9.0"
@@ -53,12 +53,14 @@ allprojects {
 ext {
     set("junitVersion", "5.9.1")
     set("springCloudVersion", "2022.0.3")
-    set("springBootVersion", "3.1.1")
-    set("feignVersion", "4.0.3")
+    set("springCloudAlibabaVersion", "2022.0.0.0-RC2")
+    set("springBootVersion", "3.0.9")
+    set("springCloudStarterVer", "4.0.3")
     set("mybatisPlusVersion", "3.5.3.1")
     set("eurekaVersion", "4.0.2")
     set("lombokVersion", "1.18.28")
     set("kotlinxJsonVersion", "1.5.1")
+    set("nacosVer", "2.2.3")
 }
 
 // 依赖管理，定义了全局的依赖版本，子工程会继承这里定义好的版本号，除非重写
@@ -69,18 +71,20 @@ dependencyManagement {
 
         // ------------- spring cloud 套件 -------------
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${property("springCloudVersion")}")
-        mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${property("eurekaVersion")}")
-        mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
-        mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:2021.0.4.0")
-        mavenBom("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
+//        mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-server:${property("eurekaVersion")}")
+//        mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
+        mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${property("springCloudAlibabaVersion")}")
+        mavenBom("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:${property("springCloudAlibabaVersion")}")
+        mavenBom("org.springframework.cloud:spring-cloud-starter-loadbalancer:${property("springCloudStarterVer")}")
+        mavenBom("org.springframework.cloud:spring-cloud-starter-openfeign:${property("springCloudStarterVer")}")
 
         // ------------- springboot 套件 -------------
         mavenBom("org.springframework.boot:spring-boot-starter:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-dependencies:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-test:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-web:${property("springBootVersion")}")
+        mavenBom("org.springframework.boot:spring-boot-starter-webflux:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
-//        mavenBom("org.springframework.boot:spring-boot-starter-webflux:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-data-jdbc:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-data-redis:${property("springBootVersion")}")
         // controller 参数校验

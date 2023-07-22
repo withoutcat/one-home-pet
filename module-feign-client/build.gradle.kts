@@ -18,8 +18,11 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
 //    implementation("org.springframework.boot:spring-boot-starter-web")
 //    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
+    implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer:${property("springCloudStarterVer")}")
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("springCloudStarterVer")}")
+//    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
+    implementation("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${property("springCloudAlibabaVersion")}")
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:${property("springCloudAlibabaVersion")}")
 
 
 

@@ -15,10 +15,14 @@ group = "com.withoutcat.pet"
 dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
 
+    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("springCloudStarterVer")}")
+    implementation("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${property("springCloudAlibabaVersion")}")
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:${property("springCloudAlibabaVersion")}")
+
 
     // springboot 套件
-        implementation("org.springframework.boot:spring-boot-starter-web")
-//    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")
@@ -26,8 +30,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 
-    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
-    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
+//    implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
+//    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
     // 这里不应该指定版本号，但是不知道是不是BUG,不给版本号就编译失败
     implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
     runtimeOnly("com.mysql:mysql-connector-j")

@@ -3,7 +3,7 @@ server:
 
 spring:
   main:
-    web-application-type: servlet
+    web-application-type: reactive
   application:
     name: user-service
   profiles:

@@ -24,7 +24,7 @@ dependencies {
 
 	// springboot 套件
 	implementation("org.springframework.boot:spring-boot-starter-web")
-//	implementation("org.springframework.boot:spring-boot-starter-webflux")
+	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 	implementation("org.springframework.boot:spring-boot-starter-data-redis")
@@ -32,9 +32,10 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 	// springcloud
-	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
-	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
-
+//	implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("feignVersion")}")
+//	implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
+	implementation("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${property("springCloudAlibabaVersion")}")
+	implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:${property("springCloudAlibabaVersion")}")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
@@ -43,7 +44,7 @@ dependencies {
 	implementation("com.baomidou:mybatis-plus-boot-starter:${property("mybatisPlusVersion")}")
 
 	runtimeOnly("com.mysql:mysql-connector-j")
-	annotationProcessor("org.projectlombok:lombok:${property("lombokVersion")}")
+	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("io.projectreactor:reactor-test")
 	testImplementation(project(":module-generator-lib"))
 	implementation(project(":module-feign-client"))
