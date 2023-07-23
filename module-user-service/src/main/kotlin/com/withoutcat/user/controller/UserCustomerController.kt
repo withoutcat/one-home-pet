@@ -1,7 +1,9 @@
 package com.withoutcat.user.controller
 
+import com.alibaba.nacos.api.config.annotation.NacosValue
 import com.withoutcat.feign.api.PetService
 import com.withoutcat.feign.dto.user.UserCustomerDTO
+import com.withoutcat.user.config.ProjectProperty
 import com.withoutcat.user.data.vo.UserCustomerVO
 import com.withoutcat.user.data.dto.LoginRequestDTO
 import com.withoutcat.user.service.UserCustomerService
@@ -9,6 +11,10 @@ import com.withoutcat.user.service.UserService
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.beans.factory.annotation.Value
+import org.springframework.cloud.context.config.annotation.RefreshScope
+import org.springframework.core.env.Environment
+import org.springframework.core.env.getProperty
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -26,6 +32,7 @@ import org.springframework.web.bind.annotation.RestController
  */
 @RestController
 @RequestMapping("/customer")
+@RefreshScope
 class UserCustomerController(
     @Autowired
     private val userCustomerService: UserCustomerService,
@@ -35,14 +42,33 @@ class UserCustomerController(
 
     @Autowired
     private val userService: UserService,
+
+    @Autowired
+    private val environment: Environment,
+
+    @Value("\${customer.testString}")
+    private var testString: String?,
+
+    @Autowired
+    private val projectProperty: ProjectProperty,
 ) {
 
     val logger: Logger = LoggerFactory.getLogger(this::class.java)
+
+
 
     @GetMapping("/health")
     fun healthCheck(): String {
         return petService.healthCheck()
     }
+
+    @GetMapping("/test")
+    fun testString() {
+        println(testString)
+        println(environment.getProperty("customer.testString"))
+        println(projectProperty.testString)
+    }
+
 
     @PostMapping("/login")
     fun login(@Validated @RequestBody loginRequestDTO: LoginRequestDTO): UserCustomerDTO {
@@ -50,8 +76,8 @@ class UserCustomerController(
         return UserCustomerVO(loginRequestDTO.account)
             .apply { password = loginRequestDTO.password }
             .let { userService.getUserByAccount(it) as UserCustomerVO? }
-            ?.let {
-                it.toUserCustomerDTO()
+            ?.let { vo ->
+                vo.toUserCustomerDTO()
                     .also { logger.info("请求pet服务") }
                     .apply { this.pets = petService.getPetByOwner(id) }
                     .also {

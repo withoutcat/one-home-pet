@@ -4,10 +4,12 @@ spring:
     url: jdbc:mysql://172.26.128.2:3306/one_home_pet_dev_user?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: withoutcat
     password: 123456
-  cloud:
-    nacos:
-      discovery:
-        server-addr: http://172.26.128.2:8848/nacos/
+#  cloud:
+#    nacos:
+#      discovery:
+#        # 对应的是dev命名空间，只能写在项目内的配置文件里，在nacos配置内不会生效
+#        namespace: 0153a7c4-53b8-400f-8b01-71b16708208d
+
 
 #eureka:
 #  client:

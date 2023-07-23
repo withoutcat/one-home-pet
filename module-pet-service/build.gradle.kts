@@ -16,13 +16,16 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${property("kotlinxJsonVersion")}")
 
     implementation("org.springframework.cloud:spring-cloud-starter-openfeign:${property("springCloudStarterVer")}")
+    implementation("org.springframework.cloud:spring-cloud-starter-bootstrap:${property("springCloudStarterVer")}")
     implementation("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${property("springCloudAlibabaVersion")}")
     implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:${property("springCloudAlibabaVersion")}")
+    implementation("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:${property("springCloudAlibabaVersion")}")
+
 
 
     // springboot 套件
     implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
+//    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.springframework.boot:spring-boot-starter-data-redis")

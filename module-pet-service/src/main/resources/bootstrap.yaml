@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: default-service # 服务名称
+  profiles:
+    active: dev # 激活的配置文件
+  cloud:
+    nacos:
+      server-addr: http://172.26.128.2:8848
+      config:
+        file-extension: yaml # 文件名后缀

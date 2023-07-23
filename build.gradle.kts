@@ -57,10 +57,11 @@ ext {
     set("springBootVersion", "3.0.9")
     set("springCloudStarterVer", "4.0.3")
     set("mybatisPlusVersion", "3.5.3.1")
-    set("eurekaVersion", "4.0.2")
+//    set("eurekaVersion", "4.0.2")
     set("lombokVersion", "1.18.28")
     set("kotlinxJsonVersion", "1.5.1")
     set("nacosVer", "2.2.3")
+    set("nacosConfVer", "0.2.12")
 }
 
 // 依赖管理，定义了全局的依赖版本，子工程会继承这里定义好的版本号，除非重写
@@ -75,6 +76,12 @@ dependencyManagement {
 //        mavenBom("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:${property("eurekaVersion")}")
         mavenBom("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${property("springCloudAlibabaVersion")}")
         mavenBom("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery:${property("springCloudAlibabaVersion")}")
+        // nacos配置中心，项目启动时会先去bootstrap.yaml里读取nacos地址等信息，然后再去nacos里读取配置，然后再和application.yaml文件合并，最后启动项目
+        mavenBom("com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config:${property("springCloudAlibabaVersion")}")
+//        mavenBom("com.alibaba.boot:nacos-config-spring-boot-starter:${property("nacosConfVer")}")
+
+        // 这个依赖可以保证项目启动时优先去读取bootstrap.yaml文件
+        mavenBom("org.springframework.cloud:spring-cloud-starter-bootstrap:${property("springCloudStarterVer")}")
         mavenBom("org.springframework.cloud:spring-cloud-starter-loadbalancer:${property("springCloudStarterVer")}")
         mavenBom("org.springframework.cloud:spring-cloud-starter-openfeign:${property("springCloudStarterVer")}")
 
@@ -87,6 +94,7 @@ dependencyManagement {
         mavenBom("org.springframework.boot:spring-boot-devtools:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-data-jdbc:${property("springBootVersion")}")
         mavenBom("org.springframework.boot:spring-boot-starter-data-redis:${property("springBootVersion")}")
+        mavenBom("org.springframework.boot:spring-boot-configuration-processor:${property("springBootVersion")}")
         // controller 参数校验
         mavenBom("org.springframework.boot:spring-boot-starter-validation:${property("springBootVersion")}")
         // runtimeOnly
