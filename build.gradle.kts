@@ -54,7 +54,7 @@ ext {
     set("junitVersion", "5.9.1")
     set("springCloudVersion", "2022.0.3")
     set("springCloudAlibabaVersion", "2022.0.0.0-RC2")
-    set("springBootVersion", "3.0.9")
+    set("springBootVersion", "3.1.2")
     set("springCloudStarterVer", "4.0.3")
     set("mybatisPlusVersion", "3.5.3.1")
 //    set("eurekaVersion", "4.0.2")
