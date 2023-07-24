@@ -4,6 +4,7 @@ package com.withoutcat.user
 import org.mybatis.spring.annotation.MapperScan
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan
+import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.ComponentScan
 import java.util.*
@@ -12,6 +13,8 @@ import java.util.*
 //@ComponentScan("com.withoutcat.user", "com.withoutcat.feign")
 //@EnableFeignClients("com.withoutcat.feign")
 //@NacosPropertySource(dataId = "user-service-dev.yaml", autoRefreshed = true)
+@EnableConfigurationProperties
+@ConfigurationPropertiesScan
 @MapperScan("com.withoutcat.user.mapper")
 @SpringBootApplication
 @ComponentScan("com.withoutcat.*")

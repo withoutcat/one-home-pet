@@ -1,6 +1,5 @@
 package com.withoutcat.user.controller
 
-import com.alibaba.nacos.api.config.annotation.NacosValue
 import com.withoutcat.feign.api.PetService
 import com.withoutcat.feign.dto.user.UserCustomerDTO
 import com.withoutcat.user.config.ProjectProperty
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.cloud.context.config.annotation.RefreshScope
 import org.springframework.core.env.Environment
-import org.springframework.core.env.getProperty
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -63,10 +61,8 @@ class UserCustomerController(
     }
 
     @GetMapping("/test")
-    fun testString() {
-        println(testString)
-        println(environment.getProperty("customer.testString"))
-        println(projectProperty.testString)
+    fun testString(): String {
+        return projectProperty.toString()
     }
 
 

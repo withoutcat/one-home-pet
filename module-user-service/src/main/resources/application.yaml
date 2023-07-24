@@ -4,9 +4,9 @@ server:
 spring:
   main:
     web-application-type: servlet
-  application:
-    name: user-service
   profiles:
     # 默认配置文件会使用dev的数据库配置
     include:
       - dev
+customer:
+  testString: got the local application.yaml
