@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="629fa400-dd03-4508-87d5-e16a96a373ea" name="Changes" comment="pet-service 配置" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/module-appointment-service">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/module-feign-client">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="one-home-pet" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Object" />
+        <option value="Kotlin Enum" />
+        <option value="Class" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {}
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/withoutcat/one-home-pet.git&quot;,
+    &quot;accountId&quot;: &quot;502bd39b-0584-4b31-9177-05e3bfc57e70&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.gradle/caches/8.0/kotlin-dsl/accessors/48c1835610f72f11352953f9347ba2d3/classes/org/gradle/kotlin/dsl/Accessorsecj23e26u09lar4r8xw19cxywKt.class" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.5.3/4969730c661fff76fa7f9d4c7c61545817f5b033/httpclient-4.5.3-sources.jar!/org/apache/http/auth/UsernamePasswordCredentials.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.0/40b9c37d8c614f0a5f87bab78da0ca7c771d1395/kotlin-stdlib-1.9.0-sources.jar!/kotlin/jvm/annotations/JvmFlagAnnotations.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot/3.1.1/a1ab30557bb4338fd206172dafd2df463520b1fd/spring-boot-3.1.1-sources.jar!/org/springframework/boot/SpringApplicationExtensions.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-context/6.0.10/a6d8926d6eb3b401ad77ecf3bca51fb4acb573c6/spring-context-6.0.10-sources.jar!/org/springframework/validation/annotation/Validated.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/wrapper/dists/gradle-8.0-bin/ca5e32bp14vu59qr306oxotwh/gradle-8.0/lib/gradle-kotlin-dsl-8.0.jar!/org/gradle/kotlin/dsl/ProjectExtensionsKt.class" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="HttpClientSelectedEnvironments">
+    <file url="jar://$APPLICATION_HOME_DIR$/plugins/restClient/lib/restClient.jar!/com/intellij/ws/rest/client/requests/collection/post-requests.http" environment="test" />
+  </component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2SbpLX4QpWPcc7NSc9BvOfYBiFT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.Build one-home-pet.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenDatabaseViewOnStart": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Spring Boot.UserServiceApplication.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/dev software/Projects/one-home-pet",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "C:/dev software/Projects/one-home-pet/moudule-pet-service/src/main/java/com/withoutcat/pet/Main.java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "74de157064aa05c42a486071763eb5e0",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "redis",
+      "mongo"
+    ],
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
+    ],
+    "kotlin-gradle-user-dirs": [
+      "C:\\Users\\sunzi\\.gradle"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev software\Projects\one-home-pet\module-pet-service\src\main\resources" />
+      <recent name="C:\dev software\Projects\one-home-pet\module-user-service\src\main\kotlin\com\withoutcat\user\feign" />
+      <recent name="C:\dev software\Projects\one-home-pet\module-feign-client\src\main\resources" />
+      <recent name="C:\dev software\Projects\one-home-pet\module-feign-client\src\main\kotlin\com\withoutcat\feign\dto" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.withoutcat.feign.dto.pet" />
+      <recent name="com.withoutcat.feign.dto.user" />
+      <recent name="com.withoutcat.feign.clients" />
+      <recent name="com.withoutcat.user.data.dto" />
+      <recent name="com.withoutcat.user.dto" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AppointmentApplication">
+    <configuration name="AppointmentApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="one-home-pet.module-appointment-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.without.appointment.AppointmentApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetServiceApplication (shenyang2)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="one-home-pet.module-pet-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.withoutcat.pet.PetServiceApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8074 -Dspring.cloud.nacos.discovery.cluster-name=shenyang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.withoutcat.pet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetServiceApplication (shenyang3)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="one-home-pet.module-pet-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.withoutcat.pet.PetServiceApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8075 -Dspring.cloud.nacos.discovery.cluster-name=shenyang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.withoutcat.pet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PetServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="one-home-pet.module-pet-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.withoutcat.pet.PetServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.withoutcat.pet.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication (shenyang)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true">
+      <module name="one-home-pet.module-user-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.withoutcat.user.UserServiceApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8071 -Dspring.cloud.nacos.discovery.cluster-name=shenyang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.withoutcat.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="one-home-pet.module-user-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.withoutcat.user.UserServiceApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.withoutcat.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.UserServiceApplication" />
+        <item itemvalue="Spring Boot.UserServiceApplication (shenyang)" />
+        <item itemvalue="Spring Boot.PetServiceApplication" />
+        <item itemvalue="Spring Boot.PetServiceApplication (shenyang3)" />
+        <item itemvalue="Spring Boot.PetServiceApplication (shenyang2)" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="629fa400-dd03-4508-87d5-e16a96a373ea" name="Changes" comment="" />
+      <created>1689427158710</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689427158710</updated>
+      <workItem from="1689427161183" duration="3453000" />
+      <workItem from="1689487180129" duration="3310000" />
+      <workItem from="1689500490675" duration="802000" />
+      <workItem from="1689501745754" duration="16042000" />
+      <workItem from="1689557342835" duration="2373000" />
+      <workItem from="1689729691609" duration="746000" />
+      <workItem from="1689730586901" duration="59432000" />
+      <workItem from="1689905614287" duration="432000" />
+      <workItem from="1689988923908" duration="835000" />
+      <workItem from="1690008548847" duration="1446000" />
+      <workItem from="1690019770490" duration="12565000" />
+      <workItem from="1690080258915" duration="28802000" />
+      <workItem from="1690165924709" duration="285000" />
+      <workItem from="1690166226555" duration="9099000" />
+      <workItem from="1690419798384" duration="27000" />
+      <workItem from="1690420931065" duration="477000" />
+      <workItem from="1690769780647" duration="382000" />
+      <workItem from="1694871213114" duration="69000" />
+      <workItem from="1694871294950" duration="70000" />
+      <workItem from="1694871490934" duration="3341000" />
+      <workItem from="1696083643293" duration="1000" />
+      <workItem from="1696083737758" duration="875000" />
+      <workItem from="1696235958621" duration="47000" />
+      <workItem from="1708138082509" duration="1497000" />
+      <workItem from="1708144950079" duration="263000" />
+      <workItem from="1708145377223" duration="52000" />
+      <workItem from="1708145441564" duration="425000" />
+      <workItem from="1708145986596" duration="104000" />
+      <workItem from="1708147050035" duration="64000" />
+      <workItem from="1710953652201" duration="42000" />
+      <workItem from="1710955170354" duration="1000" />
+      <workItem from="1716824519481" duration="345000" />
+      <workItem from="1716824959850" duration="563000" />
+      <workItem from="1719216909671" duration="936000" />
+    </task>
+    <task id="LOCAL-00001" summary="README.md">
+      <option name="closed" value="true" />
+      <created>1689501913690</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689501913690</updated>
+    </task>
+    <task id="LOCAL-00002" summary="修改忽略文件">
+      <option name="closed" value="true" />
+      <created>1689513890501</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689513890502</updated>
+    </task>
+    <task id="LOCAL-00003" summary="day4">
+      <option name="closed" value="true" />
+      <created>1689527167944</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689527167944</updated>
+    </task>
+    <task id="LOCAL-00004" summary="登录功能完成">
+      <option name="closed" value="true" />
+      <created>1689594060432</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689594060432</updated>
+    </task>
+    <task id="LOCAL-00005" summary="修改配置文件，找到了端口被占用的bug，新建pet模块">
+      <option name="closed" value="true" />
+      <created>1689598538949</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689598538949</updated>
+    </task>
+    <task id="LOCAL-00006" summary="生成文件">
+      <option name="closed" value="true" />
+      <created>1689600438207</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1689600438207</updated>
+    </task>
+    <task id="LOCAL-00007" summary="pet模块，简单查询完成">
+      <option name="closed" value="true" />
+      <created>1689755499183</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1689755499183</updated>
+    </task>
+    <task id="LOCAL-00008" summary="暂存，暂时定还是使用common-service模块">
+      <option name="closed" value="true" />
+      <created>1689777084793</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1689777084793</updated>
+    </task>
+    <task id="LOCAL-00009" summary="使用feign-client模块，统一管理接口">
+      <option name="closed" value="true" />
+      <created>1689866223324</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1689866223324</updated>
+    </task>
+    <task id="LOCAL-00010" summary="feign-client作为静态模块，无需启动">
+      <option name="closed" value="true" />
+      <created>1689869325149</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1689869325149</updated>
+    </task>
+    <task id="LOCAL-00011" summary="经典白雪 eureka，改成了nacos">
+      <option name="closed" value="true" />
+      <created>1690035331378</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690035331378</updated>
+    </task>
+    <task id="LOCAL-00012" summary="nacos的配置，自动热部署">
+      <option name="closed" value="true" />
+      <created>1690124543515</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690124543515</updated>
+    </task>
+    <task id="LOCAL-00013" summary="删除多余配置">
+      <option name="closed" value="true" />
+      <created>1690179170753</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690179170753</updated>
+    </task>
+    <task id="LOCAL-00014" summary="pet-service 配置">
+      <option name="closed" value="true" />
+      <created>1690187524765</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1690187524765</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/.." />
+    </ignored-roots>
+    <MESSAGE value="README.md" />
+    <MESSAGE value="修改忽略文件" />
+    <MESSAGE value="day4" />
+    <MESSAGE value="登录功能完成" />
+    <MESSAGE value="修改配置文件，找到了端口被占用的bug，新建pet模块" />
+    <MESSAGE value="生成文件" />
+    <MESSAGE value="pet模块，简单查询完成" />
+    <MESSAGE value="暂存，暂时定还是使用common-service模块" />
+    <MESSAGE value="使用feign-client模块，统一管理接口" />
+    <MESSAGE value="feign-client作为静态模块，无需启动" />
+    <MESSAGE value="经典白雪 eureka，改成了nacos" />
+    <MESSAGE value="nacos的配置，自动热部署" />
+    <MESSAGE value="删除多余配置" />
+    <MESSAGE value="pet-service 配置" />
+    <option name="LAST_COMMIT_MESSAGE" value="pet-service 配置" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
